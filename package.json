@@ -1,0 +1,30 @@
+{
+  "name": "create-peachy-app",
+  "version": "1.0.0",
+  "description": "CLI tool to bootstrap a new Peachy app.",
+  "main": "index.js",
+  "bin": {
+    "create-peachy-app": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "peachy",
+    "cli",
+    "bootstrap",
+    "npx"
+  ],
+  "author": "Sidmaz666",
+  "license": "MIT",
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
+    "ora": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
+
