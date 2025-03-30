@@ -17,6 +17,14 @@
   ],
   "author": "Sidmaz666",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sidmaz666/create-peachy-app"
+  },
+  "homepage": "https://peachy-dev.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/Sidmaz666/create-peachy-app/issues"
+  },
   "dependencies": {
     "boxen": "^8.0.1",
     "chalk": "^5.4.1",
