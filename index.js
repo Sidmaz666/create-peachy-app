@@ -64,7 +64,7 @@ async function main() {
     const cloneSpinner = ora(chalk.cyan('Setting up project...')).start();
     try {
       await execAsync(`git clone https://github.com/Sidmaz666/peachy.git "${targetDir}"`);
-      cloneSpinner.succeed(chalk.green('\nProject setup: Repository cloned.'));
+      cloneSpinner.succeed(chalk.green('Repository cloned.'));
     } catch (err) {
       cloneSpinner.fail(chalk.red('Project setup failed: Cloning repository failed.'));
       process.exit(1);
@@ -478,7 +478,7 @@ export default function Index(){
 
     console.log(chalk.green.bold('Project setup complete! Happy Coding!'));
     // Display available npm scripts in a square box.
-    const boxedScripts = boxen(availableScripts, {
+    const boxedScripts = boxen(chalk.cyan.bold(availableScripts), {
       padding: 1,
       margin: 1,
       borderStyle: 'round',
