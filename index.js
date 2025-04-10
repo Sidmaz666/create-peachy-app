@@ -84,21 +84,30 @@ async function main() {
 
     // Setting up package.json.
     const pkgPath = path.join(targetDir, 'package.json');
+    const pkgLockPath = path.join(targetDir, 'package-lock.json');
     const pkgSpinner = ora(chalk.cyan('Setting up package.json...')).start();
     try {
       const pkgData = await fs.readFile(pkgPath, 'utf-8');
+      const pkgLockData = await fs.readFile(pkgLockPath, 'utf-8');
       const pkgJson = JSON.parse(pkgData);
+      const pkgLockJson = JSON.parse(pkgLockData);
 
       // Set "name" to the extracted project name.
       pkgJson.name = projectName;
+      pkgLockJson.name = projectName;
       // Remove unwanted fields.
       delete pkgJson.keywords;
       delete pkgJson.author;
+      delete pkgLockJson?.keywords;
+      delete pkgLockJson?.author;
       // Set version and description.
       pkgJson.version = "0.0.0";
       pkgJson.description = "";
+      pkgLockJson.version = "0.0.0";
+      pkgLockJson.description = "";
 
       await fs.writeFile(pkgPath, JSON.stringify(pkgJson, null, 2), 'utf-8');
+      await fs.writeFile(pkgLockPath, JSON.stringify(pkgLockJson, null, 2), 'utf-8');
       pkgSpinner.succeed(chalk.green('package.json set up.'));
     } catch (err) {
       pkgSpinner.fail(chalk.red('Failed to set up package.json.'));
