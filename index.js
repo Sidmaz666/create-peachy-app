@@ -105,6 +105,8 @@ async function main() {
       pkgJson.description = "";
       pkgLockJson.version = "0.0.0";
       pkgLockJson.description = "";
+      pkgLockJson.packages[""].name = projectName;
+      pkgLockJson.packages[""].version = "0.0.0";
 
       await fs.writeFile(pkgPath, JSON.stringify(pkgJson, null, 2), 'utf-8');
       await fs.writeFile(pkgLockPath, JSON.stringify(pkgLockJson, null, 2), 'utf-8');
